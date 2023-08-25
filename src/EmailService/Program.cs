@@ -8,17 +8,9 @@ using System.Text.Unicode;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
 
 
-
-
-//builder.Services.AddTransient<IEmailService, EmailService.API.Services.EmailService>();
 
 
 #region Event Drive - DotnetCap log
@@ -74,22 +66,12 @@ builder.Services.AddSingleton<IMailService>(new MailService(smtpSettings));
 
 #region Consumers
 builder.Services.AddScoped<CreatedAssignedProductConsumer>();
+builder.Services.AddScoped<ProductTransferConsumer>();
 #endregion
 
 
 
 
 var app = builder.Build();
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
 app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
 app.Run();

@@ -21,7 +21,7 @@ namespace EmailService.Consumers
                 <html>
                     <body>
                         <p>Sayın <strong>{dto.FullName}</strong>,</p>
-                        <p>Tarafınıza <strong>{dto.Barcode}</strong> numaralı ürün tarafınıza zimmetlendi.</p>
+                        <p>Tarafınıza <strong>{dto.Barcode}</strong> numaralı ürün zimmetlendi.</p>
                         </br>
                         <p><u>Ürün bilgileri aşağıdaki gibidir.</u></p>
                         </br>
